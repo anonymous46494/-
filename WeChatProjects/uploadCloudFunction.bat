@@ -1,0 +1,1 @@
+"C:\SoftWare\微信web开发者工具\cli.bat" cloud functions deploy --e cloud1-3glkvioyc298d040 --n quickstartFunctions --r --project "C:\Users\Administrator\Desktop\nongtian" --report_first --report

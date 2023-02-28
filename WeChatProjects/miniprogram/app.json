@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/index",
+    "pages/scan/index",
+    "pages/scan_other/index",
+    "pages/wiki/index",
+    "pages/wiki_detail/index",
+    "pages/news/index",
+    "pages/news_detail/index",
+    "pages/team/index",
+    "pages/weather/index",
+    "pages/drug/index",
+    "pages/farming/index",
+    "pages/history/index",
+    "pages/zxl/index",
+    "pages/result/index",
+    "pages/result_other/index",
+    "pages/zone_class/index",
+    "pages/zone_detail/index"
+
+  ],
+  "tabBar": {
+    "selectedColor": "#219bf3",
+    "custom": false,
+    "list": [
+      {
+        "text": "百科",
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/tab1.png",
+        "selectedIconPath": "/images/tab1.png"
+      },
+      {
+        "text": "识别",
+        "pagePath": "pages/scan/index",
+        "iconPath": "/images/item_3.png",
+        "selectedIconPath": "/images/item_3.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/home/index",
+        "iconPath": "/images/tab3.png",
+        "selectedIconPath": "/images/tab3.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#3DBC6D",
+    "navigationBarTitleText": "智慧粮农助手",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于展示当前地区天气情况"
+    }
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2"
+}

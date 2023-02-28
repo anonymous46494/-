@@ -1,0 +1,35 @@
+<view class="container">
+  <view class="tui-flex">
+    <view class="tui-cube-box" bindtap='log'>
+      <view class="tui-cube tui-cube-1">支持我们</view>
+      <view class="tui-cube tui-cube-2">农田助手</view>
+      <view class="tui-cube tui-cube-3">支持我们</view>
+      <view class="tui-cube tui-cube-4">农田助手</view>
+      <view class="tui-cube tui-cube-5">支持我们</view>
+      <view class="tui-cube tui-cube-6">农田助手</view>
+    </view>
+
+  </view>
+  <view class="tui-content-box">
+    <view class="tui-content">尊敬的体验者，欢迎体验 智慧粮农助手小程序！</view>
+    <view class="tui-content">该项目是我们在大三下半学期利用空闲时间制作而成,主要功能是利用人工智能，大数据分析等技术,实现智慧农业,提示农业智能化水平,打造人工智能下的新农庄</view>
+  
+    <view class="tui-content">该小程序因能力尚浅,可能存在缺陷或者bug，如果您在使用过程中发现问题或者有更好的建议，可反馈给我们。</view>
+    <view class="tui-content">
+      您可以通过反馈或者以下方式联系我！
+    </view>
+
+    <view class="one">
+      <view class="a" bindtap="copy" data-text="835418416">QQ交流群：835418416</view>
+      <button class="b" open-type="feedback" id="appShare">点击小程序进行反馈</button>
+
+    </view>
+
+  
+    <view class="tui-footer">
+      <image src='{{img}}' class="tui-applets" mode="widthFix" bindtap="sava"></image>
+      <view class="tui-footer-text" >长按可保存图片,分享至好友，您的朋友也可以体验本小程序</view>
+    </view>
+  </view>
+
+</view>

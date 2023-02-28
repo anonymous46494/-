@@ -1,0 +1,61 @@
+<view class="page">
+  <view class="bar">
+    <view class="left">
+      <image class="user_img" src="{{data.userInfo.avatarUrl}}" />
+      <view class="one">
+        <view>
+          <text class="user_name">{{data.userInfo.nickName}}</text>
+        </view>
+        <text class="time">{{data.time}}</text>
+      </view>
+    </view>
+    <text class="follow">关注</text>
+  </view>
+
+  <view class="content">
+    <view class="txt" wx:for="{{data.cont}}" wx:key="key">
+      <text wx:if="{{index%2}}" decode="ture">&emsp;&emsp;{{item}}</text>
+      <text wx:else>{{item}}</text>
+
+    </view>
+    <view class="img">
+      <image class="user_img" wx:for="{{data.img}}" wx:key="key" src="{{item}}" />
+    </view>
+  </view>
+
+  <view class="comment">
+    <view class="text_comment">
+      <text>评论({{data.comment.length}})</text>
+    </view>
+
+    <view class="com" wx:for="{{data.comment}}" wx:key="key">
+      <view class="top">
+        <view class="info">
+          <image class="user_img" src="{{item.avatarUrl}}" />
+          <text class="name">{{item.nickName}}</text>
+        </view>
+        <text class="time">{{item.time}}</text>
+      </view>
+      <text class="content_comment">{{item.content}}</text>
+    </view>
+  </view>
+
+  <view class="fixed">
+    <view class="{{focus?'search_animation':'search'}}">
+      <input type="text" bindtap="search" bindinput="inputing" bindfocus="focusing" bindblur="bluring" value="{{input_cont}}" placeholder="请输入评论" />
+    </view>
+
+    <view wx:if="{{!focus}}" class="right">
+      <button class="button" open-type="contact" id="appShare">
+        <image src="/images/contact.png" />
+        <text>联系卖家</text>
+      </button>
+
+    </view>
+
+    <view class="submit" wx:else bindtap="submit">
+      发送
+    </view>
+
+  </view>
+</view>

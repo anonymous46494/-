@@ -1,0 +1,125 @@
+.page {
+    display: flex;
+    justify-content: center;
+    height: 100vh; 
+    width: 100%;
+    background-color: #f2f2f2;
+}
+.top{
+    width: 100%;
+    height:70rpx;
+    background-color: #3DBC6D;
+    position: absolute;
+    top:0 ;
+}
+.circle{
+    width: 100%;
+    height: 150px;
+    background: #3DBC6D;
+    border-radius: 50% / 50%;
+    position: absolute;
+    top:-45px;
+
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    z-index: 50;
+}
+
+.content .cont1 {
+    margin-top: 100rpx;
+    margin-bottom: 30rpx;
+    margin: 0 auto;
+    padding: 30rpx;
+    background-color: #fff;
+    border-radius: 20rpx;
+    width: 85%;
+    margin-bottom: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    font-size: 30rpx;
+}
+.content .center{
+    width: 90%;
+    height: 90rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin:0 auto;
+     background-color: #fff;
+     border-radius: 20rpx;
+     margin-top: 10rpx;
+
+}
+
+
+.button text{
+    font-size: 35rpx !important;
+    font-weight: normal;
+    margin-left: 60rpx;
+    
+}
+.content .cont1 .user_info{
+    display: flex;
+    align-items: center;
+    margin-bottom: 50rpx;
+}
+
+.content .cont1 .user_info image {
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 40rpx;
+    border-radius: 50%;
+}
+.content .cont1 .user_info text {
+    font-size: 45rpx;
+    font-weight:bold;
+}
+
+.content .cont1 .user_buttom {
+    display: flex;
+    justify-content: center;
+    color: #666;
+}
+.content .cont1 .user_buttom .a {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+
+}
+.content .cont1 .user_buttom .b {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content .cont2{
+    width: 85%;
+    margin: 50rpx auto;
+    padding: 0 30rpx;
+    background-color: #fff;
+    border-radius: 20rpx;
+    margin-bottom: 10px;
+}
+
+
+.button{
+    width: 100% !important;
+    display: flex;
+    border-radius: 0;
+    padding: 10rpx 30rpx;
+    align-items: center;
+    border-radius: 20rpx;
+    background-color: #fff !important;
+}
+
+.button image{
+    width: 70rpx;
+    height: 70rpx;
+    margin-left: 30rpx;
+}
+

@@ -1,0 +1,156 @@
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.img {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    z-index: -999;
+    height: 800px;
+    opacity: 0.2;
+}
+
+.img_next {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    z-index: -999;
+    height: 800px;
+    background-color: rgb(0, 0, 0);
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.content text {
+    font-weight: bold;
+    font-size: 45rpx;
+    color: #03ada2;
+}
+
+.content image {
+    height: 250rpx;
+    width: 250rpx;
+}
+
+
+.button {
+    background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+    border-radius: 98rpx;
+    font-size: 40rpx;
+    width: 45% !important;
+}
+.button_next{
+    background-image: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+    border-radius: 98rpx;
+    font-size: 40rpx;
+    width: 45% !important;
+}
+
+.content_next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+.content_next .img1 {
+    border: rgb(211, 211, 211) solid 1rpx;
+    width: 90%;
+    height: 60%;
+}
+
+.select {
+    width: 90%;
+    display: flex;
+    font-size: 45rpx;
+    color: rgb(247, 247, 247);
+    justify-content: space-between;
+    padding: 20rpx 0;
+}
+
+.select .checked_item,
+.select .normal_item {
+    color: rgb(223, 223, 223);
+    display: flex;
+    width: 38%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #353738;
+    border-radius: 30rpx;
+    padding: 20rpx 0;
+}
+
+.select .checked_item {
+    border: 1rpx springgreen solid;
+    background-color: #696f74;
+}
+
+.select image {
+    width: 140rpx;
+    height: 140rpx;
+}
+
+.content_next .bottom {
+    display: flex;
+    width: 700rpx;
+
+}
+
+.float {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 70rpx;
+    font-size: 40rpx;
+    border-radius: 20rpx 0 0 20rpx;
+    color: rgb(0, 0, 0);
+    position: absolute;
+    right: 0;
+    padding: 20rpx 0;
+    background-color: rgb(184, 182, 182);
+    opacity: 0.7;
+}
+
+.waring {
+  position: fixed;
+  bottom: 0;
+  color: #6d6d6d;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.waring image {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+  margin-top: 2rpx;
+}
+
+.waring text {
+  width: 80%;
+  margin: 0;
+  padding: 0;
+  line-height: 1.0em;
+  line-height: 33rpx;
+  vertical-align: top;
+}

@@ -1,0 +1,99 @@
+<view class="page">
+  <view class="top" wx:if="{{weather.icon||!location_grant}}" style=" background-image: url({{url}}/weather_back/{{weather.icon}}d.png );filter:blur({{scroll/5}}rpx)">
+    <view class="location">
+      <image src="/images/location.png" />
+      <text>{{City.ad_info.district}}</text>
+    </view>
+    <view wx:if="{{location_grant}}" class="content" bindtap="gotoWeather">
+      <image wx:if="{{weather.icon}}" src="{{url}}weather_ico/{{weather.icon}}.png" />
+      <view class="cont">
+        <view class="a">
+          <text>{{weather.temp}}.0°</text>
+          <text>{{weather.text}}</text>
+        </view>
+        <view class="b">
+          <text>{{weather.windDir}}{{weather.windScale}}级 湿度:{{weather.humidity}}%</text>
+        </view>
+      </view>
+    </view>
+    <view wx:else class="content" bindtap="grant">
+      <view class="cont">
+        <view class="c">
+          <text>未授权定位信息</text>
+          <text>无法使用天气功能</text>
+          <text>点击重新授权</text>
+        </view>
+      </view>
+    </view>
+    <div class="rolling">
+      <p class="animate">
+        <text wx:if="{{remind}}">{{'温馨提示：'+remind}}</text>
+        <text wx:if="{{weather_warning.length}}">{{'天气灾害预警信息：'+weather_warning[0].title}}</text>
+      </p>
+    </div>
+    <view wx:if="{{weather.icon==305}}" class="effect" style="background-image: url(https://www.upcl.ltd/images/static/weather_effect/{{weather.icon}}.png);">
+    </view>
+    <view wx:if="{{0}}" class="effect1" style="background-image: url(https://www.upcl.ltd/images/static/zxl1.jpg);">
+    </view>
+
+
+  </view>
+  <view class="mine-hasinfo">
+    <view class="middle" style="border-radius: {{90-scroll/3}}rpx {{90-scroll/3}}rpx 0 0">
+      <view class="item" wx:for="{{8}}" wx:key="item" bindtap="goNext" data-id='{{item}}'>
+        <image src="/images/item_{{item}}.png" mode="aspectFit" />
+        <text class="text">{{item_title[item]}}</text>
+      </view>
+    </view>
+
+    <view class="bottom">
+      <view class="one">
+        <view class="bar">
+          <view class="class">
+            <text>最新资讯</text>
+          </view>
+          <view>
+            <view class="more" bindtap="gotoNews">更多></view>
+          </view>
+        </view>
+        <view class="items">
+          <view class="item" wx:for="{{news}}" wx:key='index' data-id="{{item._id}}" data-flag="{{item.flag}}" bindtap="gotoNews">
+            <image src="{{item.img[0]}}" mode="scaleToFill" />
+            <view class="content">
+              <text class="title">{{item.title}}</text>
+              <text class="cont">
+                <text>作者：{{item.author}}</text>
+                <text>浏览次数：{{item.reading}}</text>
+              </text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="two">
+        <view class="bar">
+          <view class="class">
+            <text>种植攻略</text>
+          </view>
+          <view>
+            <view class="more" bindtap="gotoNews">更多></view>
+          </view>
+        </view>
+
+        <view class="items">
+          <view class="item" wx:for="{{teach}}" data-id="{{item._id}}" data-flag="{{item.flag}}" bindtap="gotoNews" wx:key="key">
+            <text class="title">{{item.title}}</text>
+            <view class="img">
+              <image wx:for="{{item.img}}" src="{{item}}" wx:key="key" mode="scaleToFill" />
+            </view>
+            <view class="info">
+              <text>{{item.author}}</text>
+              <text>{{item.reading}}人阅读</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

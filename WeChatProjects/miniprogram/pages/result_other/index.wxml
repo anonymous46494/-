@@ -1,0 +1,41 @@
+<view class="page">
+  <view class="content">
+    <view class="{{ovre?'cont_animation':'cont'}}" wx:if="{{next}}">
+      <view wx:if="{{!result}}" class="mengban">
+        <view class="meng"></view>
+      </view>
+      <image class="img" src="{{img_url}}" mode="aspectFill"></image>
+    </view>
+    <swiper style="height:250rpx" current="{{select}}" duration="300" bindchange="activeSw" previous-margin="100rpx" next-margin="100rpx">
+      <swiper-item wx:for="{{result}}" wx:for-index="idx" data-id="{{item}}" wx:key="index">
+        <view class="items">
+          <view class="{{select===idx?'item':'not-item'}}">
+            <image wx:if="{{item.baike_info}}" src="{{item.baike_info.image_url}}" />
+            <view class="right">
+              <text wx:if="{{item.name}}" class="a">{{item.name}}</text>
+              <text wx:if="{{item.keyword}}" class="a">{{item.keyword}}</text>
+              <text wx:if="{{item.root}}" >{{item.root}}</text>
+              <text class="b">相似度：{{score[idx]}}%</text>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+
+    <view wx:if="{{flag==1}}">
+      <swiper style="height:{{height}}px" wx:if="{{result}}" class="two" current="{{select}}" duration="300" bindchange="activeSw">
+        <swiper-item wx:for="{{result}}" wx:for-index="idx" data-id="{{item}}" wx:key="index">
+          <view class="text">
+            <text decode="ture">
+              &emsp;&emsp;{{result[select].baike_info.description}}
+            </text>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+
+  <view class="bottom" wx:if="{{!ovre}}">
+
+  </view>
+</view>

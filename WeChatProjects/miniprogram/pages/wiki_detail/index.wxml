@@ -1,0 +1,15 @@
+
+<view class="top">
+    <image class="backimg" src="{{res.img}}" />
+    <view class="float">
+    <text style="margin-left: 20rpx;">{{res.ch_name}}</text>
+    </view>
+</view>
+
+<view class="cont">
+  <rich-text style="line-height:1.6em;" nodes="{{res.cont}}" bindtap="tap"></rich-text>
+</view>
+
+
+
+

@@ -1,0 +1,14 @@
+<view class="page">
+  <view class="fruit" bindtap="goto1">
+    <image src="https://www.upcl.ltd/images/static/fruit.jpg"></image>
+    <view class="float">
+      <text style="margin-left: 20rpx;">蔬果识别</text>
+    </view>
+  </view>
+  <view class="plant" bindtap="goto2">
+    <image src="https://www.upcl.ltd/images/static/plant.jpg"></image>
+    <view class="float">
+      <text style="margin-left: 20rpx;">植物识别</text>
+    </view>
+  </view>
+</view>

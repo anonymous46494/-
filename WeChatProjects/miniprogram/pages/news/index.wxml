@@ -1,0 +1,25 @@
+<view class="banner">
+  <scroll-view scroll-x="true" enhanced="true" show-scrollbar="true" scroll-with-animation="true" scroll-into-view="nav-{{select > 0 ? select -1 : select}}">
+    <view wx:for="{{list}}" wx:for-index="index" wx:key="index" id="nav-{{index}}" class="sort {{index == select ? 'choose' : 'no_choose'}}" data-index='{{index}}' bindtap="activeTab">
+      <view class="text">{{item}}</view>
+      <view class="line" wx:if="{{index == select}}"></view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class="page">
+    <view class="cont">
+        <view class="items" >
+            <view class="item" wx:for="{{data}}" data-id="{{item._id}}" data-flag="{{item.flag}}" bindtap="goto" wx:key="key">
+                <text class="title">{{item.title}}</text>
+                <view class="img">
+                    <image wx:for="{{item.img}}" src="{{item}}" wx:key="key"/>
+                </view>
+                <view class="info">
+                    <text>{{item.author}}</text>
+                    <text>{{item.reading}}人阅读</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

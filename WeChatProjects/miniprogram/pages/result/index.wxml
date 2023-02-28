@@ -1,0 +1,49 @@
+<view>
+  <view>
+    <text class="txt3">{{current==0?"农作物病害名称":"害虫类型最接近"}}：{{name}}</text>
+    <text class="txt2" w>根据模型为您筛选出{{real?1:0}} 中结果可能</text>
+
+    <swiper wx:if="{{real}}" style="height:300rpx" current="{{select}}" duration="300" bindchange="activeSw" next-margin="40rpx">
+      <swiper-item wx:for="{{1}}" data-id="{{item}}" wx:key="index" bindtap="goto">
+        <view>
+          <view class="items">
+            <view wx:if="{{index==0}}" class="item">
+              <image src="{{data.img}}" />
+              <view class="right">
+                <text class="a">{{data.ch_name}}</text>
+                <text class="b">相似度：{{tensor}}%</text>
+              </view>
+            </view>
+            <view wx:else class="item">
+              <image src="{{item.img[0]}}" />
+              <view class="right">
+                <text class="a">{{item.ch_name}}</text>
+                <text class="b">相似度：40%</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+
+    <view class="real" wx:if="{{!real}}">
+      <text>未检测到相关目标，建议您重新上传图片识别</text>
+    </view>
+
+  </view>
+  <view class="txt1">用时：<text style=" color: rgb(144, 231, 103);">{{time/1000}}</text>秒</view>
+  <view class="a">
+    <button class="btn_1" role="button" bindtap="collect">
+      <text class="txt">收藏</text>
+    </button>
+    <button class="btn_2" role="button" bindtap="chooseimage" open-type="share" plain id="appShare">
+      <text class="txt">分享</text>
+    </button>
+  </view>
+
+  <view wx:if="{{!next}}" class="waring">
+  <image src="/images/waring.png" />
+  <text>该功能为我们自己使用卷积神经网络训练而成,识别结果依赖于训练权重，信息仅供参考</text>
+</view>
+
+</view>

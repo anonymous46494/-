@@ -1,0 +1,122 @@
+<view class="header">
+  <view class="search">
+    <image class="search_ico" src="/images/search.png"></image>
+    <input type="text" bindtap="search" bindinput="searching" bindfocus="focusing" bindblur="bluring" value="{{content}}" placeholder="请输入要查询的农药,如：氟虫脲" />
+    <image class="clear" src="/images/clear.png" wx:if="{{content!=''}}" bindtap="clearInput"></image>
+  </view>
+  <view class="tip">
+    <text>☝【小提示】：可输入农药名称，病虫害进行查询</text>
+  </view>
+</view>
+
+<view class="banner" wx:if="{{!input_animation}}">
+  <scroll-view scroll-x="true" enhanced="true" show-scrollbar="true" scroll-with-animation="true" scroll-into-view="nav-{{select > 0 ? select -1 : select}}">
+    <view wx:for="{{list}}" wx:for-index="index" wx:key="index" id="nav-{{index}}" class="sort {{index == select ? 'choose' : 'no_choose'}}" data-index='{{index}}' bindtap="activeTab">
+      <view class="text">{{item}}</view>
+      <view class="line" wx:if="{{index == select}}"></view>
+    </view>
+  </scroll-view>
+</view>
+
+<view wx:if="{{content==''}}" class="content">
+  <swiper style="height:{{height}}px" current="{{select}}" duration="300" bindchange="activeSw">
+    <swiper-item wx:for="{{list}}" wx:key="index">
+      <view wx:if="{{index<4}}" class="box">
+        <navigator data-id="{{item.ch_name}}" class="items" wx:for="{{dataList}}" wx:key="index" hover-stay-time="100" bindtap="goto">
+          <view class="item"  hover-class="item_hover" >
+            <image src="{{item.img}}" 	lazy-load="true" />
+            <view class="info">
+              <text >{{item.ch_name}}</text>
+              <text>{{item.cont_show}}</text>
+            </view>
+          </view>
+        </navigator>
+        <view style='height: 100rpx;'></view>
+      </view>
+      <view wx:else class="count">
+        <text>农药制剂使用量(按使用倍数)</text>
+        <form catchsubmit="formSubmit" catchreset="formReset">
+          <view class="item">
+            <view class="left">
+              <text>稀释倍数：</text>
+            </view>
+            <view class="input">
+              <input type="number" name="input1" placeholder="请输入大于1的数" />
+            </view>
+            <view class="right">
+              <text>倍</text>
+            </view>
+          </view>
+          <view class="item">
+            <view class="left">
+              <text>兑水量：</text>
+            </view>
+            <view class="input">
+              <input type="number" name name="input2" placeholder="请输入有效值" />
+            </view>
+            <view class="right">
+              <text>千克</text>
+            </view>
+          </view>
+          <view class="item">
+            <view class="left">
+              <text>制剂用量：</text>
+            </view>
+            <view class="input">
+              <input type="number" disabled="true" value="{{count_result}}" placeholder="当前无计算结果" placeholder-style="color:#F76260" />
+            </view>
+            <view class="right">
+              <text>毫升</text>
+            </view>
+          </view>
+          <view class="button">
+            <button id="button1" type="default" formType="reset">清空结果</button>
+            <button id="button2" type="primary" formType="submit">开始计算</button>
+          </view>
+        </form>
+        <text wx:if="{{count_text}}" class="count_text">{{count_text}}</text>
+        <view class="tip2">
+          <text>农药用量常用单位</text>
+          <text>1克（g）=1000毫克（mg）</text>
+          <text>1千克（kg）=1000克（g）</text>
+          <text>1升（L）=1000毫升（mL）</text>
+          <text>1升水=一公斤水（即2斤水）</text>
+        </view>
+      </view>
+
+    </swiper-item>
+  </swiper>
+</view>
+
+<view wx:else class="content">
+    <block wx:if="{{num==-1}}">
+        未搜索到与 <text style="color:red">{{content}} </text>
+        <text style="font-size: 30rpx;">相关信息</text>
+        <image src="https://www.upcl.ltd/images/static/loading.gif" />
+    </block>
+
+    <block wx:if="{{num==0}}">
+        <view wx:if="{{content!=''}}">
+            正在搜索与 <text style="color:red">{{content}} </text>
+            <text style="font-size: 30rpx;">相关信息</text>
+            <image src="https://www.upcl.ltd/images/static/loading.gif" />
+        </view>
+    </block>
+
+    <block wx:else>
+      <navigator data-id="{{item.ch_name}}" class="items" wx:for="{{result}}" wx:key="index" hover-stay-time="100" bindtap="goto">
+          <view class="item">
+            <image src="{{item.img}}" />
+            <view class="info">
+              <text >{{item.ch_name}}</text>
+              <text>{{item.cont_show}}</text>
+            </view>
+          </view>
+        </navigator>
+    </block>
+</view>
+
+<view class="waring">
+  <image src="/images/waring.png" />
+  <text>我们只提供农药使用方法以及介绍，并不提供任何购买渠道，信息仅供参考</text>
+</view>

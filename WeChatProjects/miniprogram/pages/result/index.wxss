@@ -1,0 +1,116 @@
+
+.txt1{
+  width: 100%;
+  margin: 50rpx auto;
+  font-size: 45rpx;
+  text-align:center;
+
+}
+.a{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.btn_1{
+  width: 20vh !important; 
+  text-align:center;
+  border-radius: 98rpx;
+  background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+}
+.btn_1:hover{
+  border-radius: 98rpx;
+  animation-name: img;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+.btn_2{
+  width: 20vh !important; 
+  text-align:center;
+  border-radius: 98rpx;
+  background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
+}
+.btn_2:hover{
+  border-radius: 98rpx;
+  animation-name: img;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+.txt3{
+  margin: 50rpx 20rpx;
+  display: block;
+  font-weight: bold;
+}
+.txt2{
+  margin: 0rpx 20rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+
+swiper-item{
+  margin: 20rpx 20rpx;
+  
+}
+
+
+.item{
+  display: flex;
+  margin: 20rpx 20rpx;
+  border-radius: 30rpx;
+  height: 200rpx;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.item image{
+  margin: auto 10rpx;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 30rpx;
+}
+
+.item .right{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10rpx 0;
+}
+
+.item .right .a{
+  font-weight: bold;
+  font-size: 40rpx;
+}
+
+.real{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 100rpx 0;
+  font-weight: bold;
+  color: red;
+}
+
+.waring {
+  position: fixed;
+  bottom: 0;
+  color: #6d6d6d;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.waring image {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 10rpx;
+  margin-top: 2rpx;
+}
+
+.waring text {
+  width: 80%;
+  margin: 0;
+  padding: 0;
+  line-height: 1.0em;
+  line-height: 33rpx;
+  vertical-align: top;
+}

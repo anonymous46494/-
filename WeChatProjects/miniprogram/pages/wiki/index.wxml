@@ -1,0 +1,72 @@
+<view class="header">
+    <view class="{{input_animation?'left_input_animation':'left'}}">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{varieties}}">
+            <view class="picker">
+                <view class="a" wx:if="{{!index}}">{{varieties[0]}}</view>
+                <view class="b" wx:else>{{varieties[index]}}</view>
+                <image class="image" src="/images/down.png" />
+            </view>
+        </picker>
+    </view>
+
+    <view class="{{input_animation?'search_input_animation':'search'}}">
+        <image class="search_ico" src="/images/search.png"></image>
+        <input type="text" bindtap="search" bindinput="searching" bindfocus="focusing" bindblur="bluring" value="{{content}}" placeholder="请输入查询关键词" />
+        <image class="clear" src="/images/clear.png" wx:if="{{content!=''}}" bindtap="clearInput"></image>
+    </view>
+</view>
+
+<view wx:if="{{!input_animation}}" class="banner">
+    <scroll-view scroll-x="true" enhanced="true" show-scrollbar="true" scroll-with-animation="true" scroll-into-view="nav-{{select > 0 ? select -1 : select}}">
+        <view wx:for="{{index==1?list:list1}}" wx:for-index="index" wx:key="index" id="nav-{{index}}" class="sort {{index == select ? 'choose' : ''}}" data-index='{{index}}' bindtap="activeTab">
+            <view class="text">{{item}}</view>
+            <view class="line" wx:if="{{index == select}}"></view>
+        </view>
+    </scroll-view>
+</view>
+
+<view wx:if="{{content==''}}" class="content">
+    <swiper style="height:{{height}}px" current="{{select}}" duration="300" bindchange="activeSw">
+        <swiper-item wx:for="{{list1.length}}" wx:key="index">
+            <view class="box">
+                <view class="items" wx:for="{{dataList}}" wx:key="index" bindtap="goto" data-id="{{item.ch_name}}">
+                    <view class="item">
+                        <image src="{{item.img}}" lazy-load="true"/>
+                    </view>
+                    <text>{{item.ch_name}}</text>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+</view>
+
+<view wx:else class="content">
+    <block wx:if="{{num==-1}}">
+        未搜索到与 <text style="color:red">{{content}} </text>
+        <text style="font-size: 30rpx;">相关信息</text>
+        <image src="https://www.upcl.ltd/images/static/loading.gif" />
+    </block>
+
+    <block wx:if="{{num==0}}">
+        <view wx:if="{{content!=''}}">
+            正在搜索与 <text style="color:red">{{content}} </text>
+            <text style="font-size: 30rpx;">相关信息</text>
+            <image src="https://www.upcl.ltd/images/static/loading.gif" />
+        </view>
+    </block>
+
+    <block wx:else>
+        <view class="items_search" wx:for="{{result}}" wx:key="key" bindtap="goto" data-id="{{item.ch_name}}">
+            <view class="item_search">
+                <image src="{{item.img}}" />
+                <view class="txt">
+                    <text>{{item.ch_name}}</text>
+                    <text style="color: #666; font-size: 25rpx;">{{item.en_name}}</text>
+                    <view wx:if="{{item.category}}">
+                        <text style="color: green;">{{item.category}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

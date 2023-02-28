@@ -1,0 +1,425 @@
+.page {
+    width: 100%;
+}
+
+.top {
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 550rpx;
+}
+
+
+.effect {
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    height: 550rpx;
+    animation-name: weather;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    transform: rotate(10deg);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.effect1 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    width: 400rpx;
+    height: 400rpx;
+    border-radius:50% 0 50% 50%;
+    animation-name: weather;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+@keyframes weather {
+    from {
+        background-position: 0 0px;
+    }
+
+    to {
+        background-position: 0 1024px;
+    }
+}
+
+
+effect1::after {
+    content: attr(data-spotlight);
+    color: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+    clip-path: ellipse(100px 100px at 0% 50%);
+    animation: spotlight 5s infinite;
+
+    background-size: 150%;
+    background-position: center center;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+@keyframes spotlight {
+    0% {
+        -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+        clip-path: ellipse(100px 100px at 0% 50%);
+    }
+
+    50% {
+        -webkit-clip-path: ellipse(100px 100px at 100% 50%);
+        clip-path: ellipse(100px 100px at 100% 50%);
+    }
+
+    100% {
+        -webkit-clip-path: ellipse(100px 100px at 0% 50%);
+        clip-path: ellipse(100px 100px at 0% 50%);
+    }
+}
+
+.top .location {
+    display: flex;
+    width: 100%;
+    height: 50rpx;
+    padding-top: 80rpx;
+    margin-left: 20rpx;
+}
+
+
+.top .location image {
+    width: 50rpx;
+    height: 100%;
+    justify-content: center;
+}
+
+.top .location text {
+    height: 100%;
+    line-height: 50rpx;
+    color: #ffffff;
+    font-size: 40rpx;
+}
+
+.top .content {
+    display: flex;
+    width: 100%;
+    margin: 20rpx 0;
+    justify-content: center;
+}
+
+.top .content image {
+    width: 150rpx;
+    height: 150rpx;
+    margin: 0 20rpx 0 20rpx;
+}
+
+.top .content .cont {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.top .content .cont .a {
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+}
+
+.top .content .cont .a text:nth-child(1) {
+    font-size: 80rpx;
+    color: #ffffff;
+
+}
+
+.top .content .cont .a text:nth-child(2) {
+    font-size: 40rpx;
+    color: #ffffff;
+    text-align: center;
+
+}
+
+.top .content .cont .b {
+    width: 100%;
+}
+
+
+.top .content .cont .b text {
+    font-size: 25rpx;
+    width: 100%;
+    height: 40rpx;
+    color: #ffffff;
+    text-align: center;
+}
+
+.top .content .cont .c {
+    display: flex;
+    flex-direction: column;
+    font-size: 30rpx;
+    color: #ffffff;
+    text-align: center;
+}
+
+.top .rolling {
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 30rpx;
+    display: flex;
+    background-color: rgb(121, 121, 121);
+    overflow: hidden;
+    opacity: 0.5;
+    border-radius: 20rpx;
+    margin: 35rpx 20rpx;
+}
+
+.top .animate {
+    padding-left: 20px;
+    color: #fff;
+    display: inline-block;
+    white-space: nowrap;
+    animation: 15s wordsLoop linear infinite normal;
+}
+
+.top .animate text {
+    margin-right: 400rpx;
+}
+
+@keyframes wordsLoop {
+    0% {
+        transform: translateX(200px);
+        -webkit-transform: translateX(200px);
+    }
+
+    100% {
+        transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes wordsLoop {
+    0% {
+        transform: translateX(200px);
+        -webkit-transform: translateX(200px);
+    }
+
+    100% {
+        transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+    }
+}
+
+.mine-hasinfo {
+    padding-top: 440rpx;
+    position: relative;
+}
+
+
+.middle {
+    background-color: #ffffff;
+    border-radius: 90rpx 90rpx 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30rpx 20rpx;
+
+}
+
+.middle .item {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    margin-top: 20rpx;
+    width: 160rpx;
+    height: 160rpx;
+}
+
+.middle .item image {
+    width: 80rpx;
+    height: 80rpx;
+    margin: 0 30rpx;
+}
+
+.middle .item text {
+    display: inline-block;
+    width: 160rpx;
+    font-size: 23rpx;
+    color: #666;
+    text-align: center;
+    margin-top: 20rpx;
+}
+
+.bottom {
+    padding: 0rpx 20rpx;
+    background-color: #ffffff;
+}
+
+.one {
+    width: 100%;
+    margin-bottom: 20rpx;
+}
+
+.bar {
+    display: flex;
+    height: 60rpx;
+    justify-content: space-between;
+    margin-bottom: 20rpx;
+}
+
+.bar .class {
+    display: flex;
+}
+
+.bar .class image {
+    height: 60rpx;
+    width: 60rpx;
+}
+
+.bar .class text {
+    height: 60rpx;
+    line-height: 60rpx;
+    font-weight: bold;
+}
+
+.bar .more {
+    font-size: 25rpx;
+    border: solid 1rpx rgb(75, 75, 75);
+    border-radius: 40rpx;
+    padding: 5rpx 15rpx;
+    margin-top: 15rpx;
+}
+
+.one .items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20rpx;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.one .items .item {
+    display: flex;
+    /* justify-content: center; */
+
+    padding: 20rpx 20rpx;
+    width: 88%;
+    border-bottom: solid 1rpx #F2F2F2;
+}
+
+.one .items .item image {
+    height: 170rpx;
+    width: 470rpx;
+    border-radius: 20rpx;
+    margin-right: 20rpx;
+}
+
+.one .items .item .content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.one .items .item .content .title {
+    font-size: 30rpx;
+    font-weight: bold;
+}
+
+.one .items .item .content .cont {
+    width: 100%;
+}
+
+.one .items .item .content .cont text:nth-child(1) {
+    font-size: 27rpx;
+    display: block;
+    color: #666;
+}
+
+.one .items .item .content .cont text:nth-child(2) {
+    color: #666;
+    font-size: 23rpx;
+}
+
+.two .items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20rpx;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.two .items .item {
+    padding: 20rpx 20rpx;
+    width: 88%;
+    border-bottom: solid 1rpx #F2F2F2;
+}
+
+.two .item .title {
+    font-weight: bold;
+    font-size: 30rpx;
+}
+
+.two .item .img {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.two .item image {
+    margin: 10rpx 0;
+    flex: 1;
+    height: 140rpx;
+    border-radius: 20rpx;
+}
+
+
+.two .item image:nth-child(1) {
+    margin-right: 10rpx;
+}
+
+
+.two .item image:nth-child(2) {
+    margin-right: 10rpx;
+}
+
+.two .item .info {
+    color: #666;
+    font-size: 27rpx;
+    display: flex;
+    justify-content: space-between
+}
+
+
+
+@keyframes rotaryBlockFirst {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: -110%;
+    }
+}
+
+@media screen and (max-width: 500rpx) {
+    @keyframes rotaryBlockFirst {
+        0% {
+            left: 0;
+        }
+
+        100% {
+            left: -500rpx;
+        }
+    }
+
+}

@@ -1,0 +1,70 @@
+<view class="page">
+    <view class="top">
+    </view>
+    <view>
+        <view class="circle"></view>
+    </view>
+    <view class="content">
+        <view class="cont1">
+            <view class="user_info" wx:if="{{islogin}}">
+                <image src="{{userInfo.avatarUrl}}" />
+                <text>{{userInfo.nickName}}</text>
+            </view>
+            <view class="user_info" wx:else>
+                <image src="/images/user.jpg" />
+                <text bindtap="getUserInfo">点击登陆</text>
+            </view>
+            <view class="user_buttom">
+                <view class="a" bindtap="goHistory">
+                    <text>{{islogin?history.length:'未登录'}}</text>
+                    <text>识别记录</text>
+                </view>
+                <view class="b">
+                    <text>{{islogin?0:'未登录'}}</text>
+                    <text>我的收藏</text>
+                </view>
+            </view>
+            <view>
+            </view>
+        </view>
+        
+        <view>
+            <view class="center" wx:if="{{0}}" bindtap="goTo1">
+                <view class="button" bindtap="goTo1">
+                    <image src="/images/home_0.png" />
+                    <text>我的发布</text>
+                </view>
+            </view>
+            <view class="center" wx:if="{{0}}" bindtap="goTo2">
+                <view class="button">
+                    <image src="/images/home_1.png" />
+                    <text>我的圈子</text>
+                </view>
+            </view>
+            <view class="center"  bindtap="goTo3">
+                <view class="button">
+                    <image src="/images/item.png" />
+                    <text>我的团队</text>
+                </view>
+            </view>
+            <view class="center">
+                <button class="button" open-type="contact" id="appShare">
+                    <image src="/images/contact.png" />
+                    <text>联系我们</text>
+                </button>
+            </view>
+            <view class="center">
+                <button class="button" open-type="share" id="appShare">
+                    <image src="/images/share.png" />
+                    <text>分享应用</text>
+                </button>
+            </view>
+            <view class="center">
+                <button class="button" bindtap="exit">
+                    <image src="/images/exit.png" />
+                    <text>退出登陆</text>
+                </button>
+            </view>
+        </view>
+    </view>
+</view>

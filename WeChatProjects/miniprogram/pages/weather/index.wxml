@@ -1,0 +1,107 @@
+<view wx:if="{{show&&show_2}}" class="page">
+  <view class="location">
+      <text>{{City.address_component.province}}-{{City.address_component.city}}-{{City.address_component.district}}</text>
+      <text>最后更新时间：{{updateTime}}</text>
+    </view>
+  <view class="top">
+
+    <view class="weather">
+      <image src="{{weather_ico2}}{{weatherNow.icon}}.svg" />
+      <view class="cont">
+        <view class="a">
+          <text>19.0°</text>
+          <text>{{weatherNow.text}}</text>
+        </view>
+        <view class="b">
+          <text>{{weatherNow.windDir}}{{weatherNow.windScale}}级 湿度:{{weatherNow.humidity}}%</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="items">
+      <view class="item">
+        <image src="/images/resources/sunrise.svg" />
+        <text>日出时间</text>
+        <text>{{weather[0].sunrise}}</text>
+      </view>
+      <view class="item">
+        <image src="/images/resources/sunset.svg" />
+        <text>日落时间</text>
+        <text>{{weather[0].sunset}}</text>
+      </view>
+      <view class="item">
+        <image src="/images/resources/pres.svg" />
+        <text>大气压强</text>
+        <text>{{weather[0].pressure}} 百帕</text>
+      </view>
+      <view class="item">
+        <image src="/images/resources/windspeed.svg" />
+        <text>风速风向</text>
+        <text>{{weatherNow.windDir}}{{weatherNow.windScale}}级</text>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="mid">
+    <view class="title">
+    </view>
+    <view class="head">
+      <view class="a">
+        <view class="line1" />
+        <text class="title1">七天预报</text>
+        <view class="line2" />
+      </view>
+    </view>
+    <view class="items">
+      <view class="title">
+        <text>日期</text>
+        <text>天气</text>
+        <text>最低气温</text>
+        <text>最高气温</text>
+      </view>
+      <view class="item" wx:for="{{weather}}" wx:key="key">
+        <view wx:if="{{index==0}}">
+          <text>明天</text>
+        </view>
+        <view wx:if="{{index==1}}">
+          <text>后天</text>
+        </view>
+        <view wx:if="{{index>1}}">
+          <text>0{{weather_date[index]}}</text>
+        </view>
+        <view class="zxl">
+          <view class="svg_icon">
+            <image class="svg_icon-inner" src="{{weather_ico2}}{{item.iconDay}}.svg" />
+            <text style="margin: 0 5rpx;"> ~ </text>
+            <image src="{{weather_ico2}}{{item.iconNight}}.svg" />
+          </view>
+          <text>{{item.textDay}} ~ {{item.textNight}}</text>
+        </view>
+        <view>
+          <text>{{item.tempMin}}°C</text>
+        </view>
+        <view>
+          <text>{{item.tempMax}}°C</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="bottom">
+    <view class="head">
+      <view class="a">
+        <view class="line1" />
+        <text class="title1">极端天气提醒</text>
+        <view class="line2" />
+      </view>
+      <text class="title2">{{month}}月份请注意防范以下极端气象</text>
+    </view>
+    <view class="items">
+      <view class="item" wx:for="{{list}}" wx:key="index">
+        <image src="/images/{{img[index]}}"></image>
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+</view>

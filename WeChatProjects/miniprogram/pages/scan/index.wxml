@@ -1,0 +1,38 @@
+<view>
+    <image class="{{next?'img_next':'img'}}" src="{{next?'':'/images/beijin.jpg'}}" mode="scaleToFill"/>
+</view>
+
+<view class="page">
+    <view class="content" wx:if="{{!next}}">
+        <text>点击拍照</text>
+        <text>快速帮您诊断病虫害</text>
+        <image src="/images/scan_about.gif"></image>
+        <button class="button" bindtap="chooseimage">
+            <text class="txt">拍照识别</text>
+        </button>
+    </view>
+
+    <view class="content_next" wx:else>
+        <image class="img1" src="{{img_url}}" mode="aspectFill"></image>
+        <view class="select">
+            <view class="item" wx:for="{{select}}" wx:key="index" class='{{item.checked?"checked_item":"normal_item"}}' bindtap='checkButtonTap' data-id='{{item.id}}'>
+                <image src="{{item.img}}" />
+                <text>{{item.name}}</text>
+            </view>
+        </view>
+        <view class="bottom">
+            <button class="button_next" bindtap="chooseimage">
+                <text class="txt">重拍</text>
+            </button>
+            <button class="button_next" bindtap="distinguish">
+                <text class="txt">开始识别</text>
+            </button>
+        </view>
+    </view>
+    <text wx:if="{{!next}}" class="float" bindtap="zxl">拍照指南</text>
+</view>
+
+<view wx:if="{{!next}}" class="waring">
+  <image src="/images/waring.png" />
+  <text>该功能为我们自己使用卷积神经网络训练而成,识别结果依赖于训练权重，识别结果仅供参考</text>
+</view>

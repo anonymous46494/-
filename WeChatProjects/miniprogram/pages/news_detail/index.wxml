@@ -1,0 +1,30 @@
+<view class="page">
+    <view class="top">
+        <text class="title">{{data.title}}</text>
+        <view class="down">
+            <view class="data">{{data.author}}</view>
+            <view class="read">阅读量：{{data.reading}}</view>
+            <view class="right">
+                <image src="{{play?'/images/paly_no.png':'/images/paly.png'}}" bindtap="paly"/>
+                <text>听语音</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="show">
+        <text>{{data.show}}</text>
+    </view>
+
+    
+    <view class="items" wx:for="{{data.p1}}" wx:key="key">
+        <view class="item">
+            <image wx:if="{{index<3}}" src="{{data.img[index]}}" />
+            <view class="p1">{{item}}</view>
+            <view class="info" decode="ture">
+                 {{data.cont[index]}}
+            </view>
+        </view>
+    </view>
+
+
+</view>

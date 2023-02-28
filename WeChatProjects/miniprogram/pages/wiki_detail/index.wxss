@@ -1,0 +1,35 @@
+.backimg {
+    width: 95%;
+    height: 400rpx;
+    margin-top: 20rpx;
+    border-radius: 10rpx;
+}
+.top{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.top .float{
+    position: relative;
+    height: 60rpx;
+    width: 95%;
+    bottom:60rpx;
+    color: #000;
+    opacity: 0.7;
+    font-size: 40rpx;
+    line-height: 60rpx;
+    border-radius: 0 0 10rpx 10rpx;
+    background-color: rgb(211, 211, 211);
+}
+
+
+.cont{
+  position: relative;
+  top: -60rpx;
+  display: flex;
+  margin: 0 20rpx;
+}
+

@@ -1,0 +1,17 @@
+<view class="page">
+  <view wx:if="{{history.length}}" class="items" wx:for="{{history}}" wx:key="key" bindtap="goto" data-id="{{item.ch_name}}" data-clas="{{item.clas}}">
+    <view class="item">
+      <view class="left">
+        <image src="{{item.img}}" mode="aspectFill" />
+        <view class="info">
+          <text class="a">{{item.ch_name}}</text>
+          <text style="color: #666; font-size: 30rpx;">{{item.en_name}}</text>
+          <text style="color: #666; font-size: 30rpx;">相似度：<text style="font-weight: bold; color: rgb(0, 0, 0);">{{item.grade}}</text> %</text>
+        </view>
+      </view>
+      <view class="clas">
+        <text>{{item.clas}}</text>
+      </view>
+    </view>
+  </view>
+</view>

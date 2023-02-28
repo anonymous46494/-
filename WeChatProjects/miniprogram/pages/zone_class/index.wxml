@@ -1,0 +1,55 @@
+<view class="page">
+    <view class="top">
+        <image class="image" src="https://www.upcl.ltd/images/static/liangnong.jpeg" />
+    </view>
+
+    <view class="inside">
+        <view class="left">
+            <image class="image" src="https://www.upcl.ltd/images/static/liangnong.jpeg" />
+            <view class="a">
+                <text>粮农市场</text>
+                <text>520人关注</text>
+            </view>
+        </view>
+        <view class="follow" bindtap="follow">
+            <text>{{follow?'已关注':'关注'}}</text>
+        </view>
+    </view>
+
+    <view class="banner">
+        <scroll-view scroll-x="true" scroll-with-animation="true" scroll-into-view="nav-{{select > 0 ? select -1 : select}}">
+            <view wx:for="{{list}}" wx:for-index="index" wx:key="index" id="nav-{{index}}" class="sort {{index == select ? 'choose' : ''}}" data-index='{{index}}' bindtap="activeTab">
+                <view class="text">{{item}}</view>
+                <view class="line" wx:if="{{index == select}}"></view>
+            </view>
+        </scroll-view>
+    </view>
+
+    <view class="content">
+        <swiper style="height:{{height}}px" current="{{select}}" duration="300" bindchange="activeSw">
+            <swiper-item wx:for="{{list.length}}" wx:key="index">
+                <view class="box">
+                    <view class="content">
+                        <view class="items" wx:for="{{data}}" bindtap="goto" data-id="{{item._id}}" hover-class="items_hover" wx:key="key">
+                            <view class="item">
+                                <view class="bar">
+                                    <image class="user_img" src="{{item.userInfo.avatarUrl}}" />
+                                    <view class="one">
+                                        <view>
+                                            <text class="user_name">{{item.userInfo.nickName}}</text>
+                                        </view>
+                                        <text style="font-size: 27rpx" class="time">{{item.time}}</text>
+                                    </view>
+                                </view>
+                                <view class="title">{{item.title}}</view>
+                                <view class="img">
+                                    <image wx:for="{{item.img}}" src="{{item}}" mode="center" wx:key="key" />
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>
